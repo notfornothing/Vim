@@ -187,30 +187,61 @@
 >  :map ,A oanother line<Esc>
 
 
-# vimrc
+# [ideavimrc](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)
 
 ```vim
-"没有递归禁用insert模式下方向键"
+"  使vimrc文件里面生效========================没用过
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" 设置自己的leader"
+let mapleader=","
+" 没有递归禁用insert模式下方向键"
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-
-"没有递归禁用insert模式下方向键"
+"  没有递归禁用normal模式下方向键"
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+"  上下移动且保持居中"
+nmap j jzz
+nmap k kzz
+"  快速跳转 "
+nmap J 3j
+nmap K 3k
+"  行首和行尾 要弄成递归的,不然命令组合的时候不能调用 比如dL dH vL vH vJ vK"
+nmap L $
+nmap H ^
+"  取消Ctrl+r redo按键"
+"  这里大概是吧C-r默认的redo取消,然后C-r的意义还在,只是按C-r没用而已.所以下面的 U 就可以映射过去
+unmap <C-r> "  我觉得也等于map <C-r> <Nop>"
+"  redo"
+"  这里换map不行 因为nnormap不会做进一步的映射 不会再对C-r做进一步扫描,一般用于重定义一个命令"
+nnoremap U <C-r>
+"  处理非Vim的复制粘贴"
+vnoremap <Leader>y "  +y
+nnoremap <Leader>p "  +p
+"  全选"
+nnoremap <C-a> <Esc>ggVG
+"  查找"
+unmap <C-f>
+nnoremap <C-f> :/
 
 
-nnoremap j jzz
-nnoremap k kzz
-
-
-nnoremap L $
-nnoremap H ^
+"  行号设置"
 set rnu
 set nu
-set ignorecase
+"设置高亮"
+set hlsearch
+set incsearch
+"取消搜索后的高亮"
+nnoremap <Esc> :nohlsearch<Cr>
+
+
+"  文件类型检测==============================没用过
+filetype on
+" 根据不同的文件类型加载不同的插件功能==============================没用过
+filetype plugin on
 ```
 
