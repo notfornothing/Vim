@@ -28,8 +28,8 @@ unmap <C-r> "  我觉得也等于map <C-r> <Nop>"
 "  这里换map不行 因为nnormap不会做进一步的映射 不会再对C-r做进一步扫描,一般用于重定义一个命令"
 nnoremap U <C-r>
 "  处理非Vim的复制粘贴"
-vnoremap <Leader>y "  +y
-nnoremap <Leader>p "  +p
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
 "  全选"
 nnoremap <C-a> <Esc>ggVG
 "  查找"
