@@ -193,6 +193,10 @@
 # [ideavimrc](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)
 
 ```vim
+" 不要一味的折腾Vim,多敲才是硬道理"
+
+
+
 "  使vimrc文件里面生效========================没用过
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -220,11 +224,11 @@ nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 "  上下移动且保持居中"
-nmap j jzz
-nmap k kzz
+nnoremap j jzz
+nnoremap k kzz
 "  快速跳转 "
-nmap J 4j
-nmap K 4k
+nmap J 3j
+nmap K 3k
 "  行首和行尾 要弄成递归的,不然命令组合的时候不能调用 比如dL dH vL vH vJ vK"
 nnoremap L $
 nnoremap H ^
@@ -263,5 +267,17 @@ set clipboard+=unnamed
 filetype on
 " 根据不同的文件类型加载不同的插件功能==============================没用过
 filetype plugin on
+
+
+
+"Windows路径转Unix
+"用"ap 看a寄存器的内容
+"用0"ay$ 讲内容寄存到寄存器a中
+"Hf\r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/<Esc>yy
+
+"字符串加双引号"
+"ciw\"<Esc>pF\xwwli
+
+
 ```
 
