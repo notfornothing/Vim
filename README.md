@@ -1,19 +1,18 @@
-# Vim
+# Vim(IDEA可以装一个AceJump)
 
 ---
 
 学习vim就像学弹钢琴一样，一旦学会，受益无穷。
 
+**" 不要一味的折腾Vim,多敲才是硬道理"**
 
+以后有机会折腾用Vim写 Markdown 有占位符思想.<++> 用f 酷酷!!!
 
 # 问题:
 
 ---
 
 
-
-
-> 
 
 # Get it
 
@@ -35,6 +34,24 @@
 * **V** 可视化一整行
 * **I** 大写的i 在本行的第一个单词进行插入
 * **A** 大写的a 在本行的最后一个单词进行插入
+
+* 
+
+# Text-Object
+
+---
+
+* 在当前单词尾部加东西，就按**ea** （记为“End Append”)
+* 在单词前面加东西，就按**bi** （记为 “Begin Insert”）
+* 调换相邻两个字符，直接就记成**xp**
+* 调换上下两行，直接就记成**ddp**
+
+* **vi(,vi{** visual模式下到()内.但是不包括()
+* **va(,va{** visual模式下到()内.包括()
+* **vi(i(** 可以选择两层括号的内容,但是不包括()
+* **va(a(** 可以选择两层括号的内容,包括()
+
+
 
 # Some Tricks
 
@@ -84,34 +101,7 @@
 
 * 
 
-# Text-Object
-
----
-
-* 在当前单词尾部加东西，就按**ea** （记为“End Append”)
-* 在单词前面加东西，就按**bi** （记为 “Begin Insert”）
-* 调换相邻两个字符，直接就记成**xp**
-* 调换上下两行，直接就记成**ddp**
-
-* **vi(,vi{** visual模式下到()内.但是不包括()
-* **va(,va{** visual模式下到()内.包括()
-* **vi(i(** 可以选择两层括号的内容,但是不包括()
-* **va(a(** 可以选择两层括号的内容,包括()
-
-
-
-
-
-## IDEA 配置Vim
-
-## IdeaVim配置注意:
-
-在配置`action`时，可以把这个`action`直接在IDE内输入`:action {pattern}`看下效果。
- 然后，配置`.ideavimrc/_ideavimrc`后，直接输入`:source ~/.ideavimrc`（`source C:\Users\<YourName>\_ideavimrc`）就可以直接看到效果。
-
-
-
-## 技巧:
+# 技巧:
 
 * i: 在光标前插入；一个小技巧：按8，再按i，进入插入模式，输入=， 按esc进入命令模式，就会出现8个=。 这在插入分割线时非常有用，如30i+<esc>就插入了36个+组成的分割线。
 
@@ -150,7 +140,7 @@
 
 ---
 
-#### 解释:
+## 解释:
 
 * no recursive 是没有递归的意思
 * map 是是映射的意思
@@ -159,7 +149,7 @@
 
 
 
-#### 把方向键设置为空:
+## 把方向键设置为空:
 
 >imap <Up> <Nop>
 >nmap <Up> <Nop>
@@ -174,7 +164,7 @@
 > 但是这样会调用递归,我的意思是原来调用的键失去了原来的效果.
 > 所以用no recursive
 
-#### <Leader>和mapleader变量
+## <Leader>和mapleader变量
 
 >  mapleader变量对所有map映射命令起效，它的作用是将参数<leader>替换成mapleader变量的值，比如：
 >  :map <Leader>A oanother line<Esc>
@@ -187,13 +177,38 @@
 >  :map ,A oanother line<Esc>
 
 
+
+# IdeaVim配置注意:
+
+* 在配置`action`时，可以把这个`action`直接在IDE内输入`:action {pattern}`看下效果。
+  然后，配置`.ideavimrc/_ideavimrc`后，直接输入`:source ~/.ideavimrc`（`source C:\Users\<YourName>\_ideavimrc`）就可以直接看到效果。
+
+* vim的yank命令默认不会复制到系统粘贴板，而是粘贴到寄存器。
+
+  你可以使用* 或　+寄存器来访问系统粘贴板。 
+
+  在~/.ideavimrc (如果不存在就创建) 中添加下列选项 set clipboard+=unnamed
+
+
 # [ideavimrc](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)
 
 ```vim
 "  使vimrc文件里面生效========================没用过
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
 " 设置自己的leader"
-let mapleader=","
+let mapleader=" "
+
+"  行号设置"
+set rnu
+set nu
+"设置高亮"
+set hlsearch
+set incsearch
+"取消搜索后的高亮"
+nnoremap <Esc> :nohlsearch<CR>
+set ignorecase
+
 " 没有递归禁用insert模式下方向键"
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
@@ -208,35 +223,40 @@ nnoremap <Right> <Nop>
 nmap j jzz
 nmap k kzz
 "  快速跳转 "
-nmap J 3j
-nmap K 3k
+nmap J 4j
+nmap K 4k
 "  行首和行尾 要弄成递归的,不然命令组合的时候不能调用 比如dL dH vL vH vJ vK"
-nmap L $
-nmap H ^
+nnoremap L $
+nnoremap H ^
+vnoremap L $
+vnoremap H ^
+map L $
+map H ^
 "  取消Ctrl+r redo按键"
 "  这里大概是吧C-r默认的redo取消,然后C-r的意义还在,只是按C-r没用而已.所以下面的 U 就可以映射过去
-unmap <C-r> "  我觉得也等于map <C-r> <Nop>"
+unmap <C-r> " 我觉得也等于map <C-r> <Nop>"
 "  redo"
 "  这里换map不行 因为nnormap不会做进一步的映射 不会再对C-r做进一步扫描,一般用于重定义一个命令"
 nnoremap U <C-r>
-"  处理非Vim的复制粘贴"
-vnoremap <Leader>y "  +y
-nnoremap <Leader>p "  +p
-"  全选"
-nnoremap <C-a> <Esc>ggVG
 "  查找"
-unmap <C-f>
 nnoremap <C-f> :/
 
 
-"  行号设置"
-set rnu
-set nu
-"设置高亮"
-set hlsearch
-set incsearch
-"取消搜索后的高亮"
-nnoremap <Esc> :nohlsearch<Cr>
+" 预留10行 scroll offset"
+set scrolloff=20
+
+
+" IDEA method"
+nnoremap <leader>r :action RunClass<CR>
+nnoremap <C-l> :action EditorCompleteStatement<CR>
+inoremap <C-l> <Esc>:action EditorCompleteStatement<CR>i
+nnoremap <leader>l gt
+nnoremap <leader>h gT
+
+
+
+"解决IDEA系统剪贴板不能用的问题"
+set clipboard+=unnamed
 
 
 "  文件类型检测==============================没用过
