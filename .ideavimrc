@@ -1,6 +1,6 @@
+" Create By JackSparrow"
+" Get good ,get vim"
 " 不要一味的折腾Vim,多敲才是硬道理"
-
-
 
 "  使vimrc文件里面生效========================没用过
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -13,10 +13,11 @@ set rnu
 set nu
 "设置高亮"
 set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
 set incsearch
 "取消搜索后的高亮"
 nnoremap <Esc> :nohlsearch<CR>
-set ignorecase
+set ignorecase smartcase
 
 " 没有递归禁用insert模式下方向键"
 inoremap <Up> <Nop>
@@ -32,6 +33,8 @@ nnoremap <Right> <Nop>
 nnoremap j jzz
 nnoremap k kzz
 "  快速跳转 "
+vnoremap J 3j
+vnoremap K 3k
 nmap J 3j
 nmap K 3k
 "  行首和行尾 要弄成递归的,不然命令组合的时候不能调用 比如dL dH vL vH vJ vK"
@@ -56,36 +59,80 @@ set scrolloff=20
 
 
 " IDEA method"
-nnoremap <leader>r :action RunClass<CR>
+nnoremap <leader>r :action RunClass <CR>
 nnoremap <C-l> :action EditorCompleteStatement<CR>
 inoremap <C-l> <Esc>:action EditorCompleteStatement<CR>i
 nnoremap <leader>l gt
 nnoremap <leader>h gT
+nnoremap <leader>s :action Stop<CR>
 
-
-
+nnoremap <leader>s :source ~/.ideavimrc<CR>
+" 打开网页
+" nnoremap <leader>w :action WebOpenInAction<CR>
+nnoremap <C-f> /
+inoremap <C-f> <ESC>/
 "解决IDEA系统剪贴板不能用的问题"
 set clipboard+=unnamed
 
 
-"  文件类型检测==============================没用过
-filetype on
-" 根据不同的文件类型加载不同的插件功能==============================没用过
-filetype plugin on
+
+" quit ==> close current window
+nnoremap <Leader>q :wq<Cr>
+
+" Window operation
+" (关于窗口操作)
+nnoremap <Leader>ww <C-w>w
+nnoremap <Leader>wc <C-W>c
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>w- <C-W>s
+nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>w\| <C-W>v
+nnoremap <Leader>wo :only<Cr>
 
 
 
-"Windows路径转Unix
-"用"ap 看a寄存器的内容
-"用0"ay$ 讲内容寄存到寄存器a中
-"Hf\r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/;r/<Esc>yy
-
-"字符串加双引号"
-"ciw\"<Esc>pF\xwwli
 
 
 
+" jump to next error
+noremap <leader>j <ESC>:action GotoNextError<CR>
+" jump to previous error，就近原则
+noremap <leader>k <ESC>:action GotoPreviousError<CR>
+
+
+" set easymotion
+set NERDTree
+set surround
+Plug 'machakann/vim-highlightedyank'
 
 
 
 
+
+" markdown"
+" Press space twice to jump to the next '<++>' and edit it
+" map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+"autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
+" set filetype on
+" set nocompatible
+
+" autocmd Filetype markdown nnoremap <buffer> <Space>f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
+" autocmd Filetype markdown nnoremap <buffer> <Space>w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
+" autocmd Filetype markdown nnoremap <buffer> <Space>n ---<Enter><Enter>
+" autocmd Filetype markdown nnoremap <buffer> <Space>b **** <++><Esc>F*hi
+" autocmd Filetype markdown nnoremap <buffer> <Space>s ~~~~ <++><Esc>F~hi
+" autocmd Filetype markdown nnoremap <buffer> <Space>i ** <++><Esc>F*i
+" autocmd Filetype markdown nnoremap <buffer> <Space>d `` <++><Esc>F`i
+" autocmd Filetype markdown nnoremap <buffer> <Space>c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
+" autocmd Filetype markdown nnoremap <buffer> <Space>m - [ ]
+" autocmd Filetype markdown nnoremap <buffer> <Space>p ![](<++>) <++><Esc>F[a
+" autocmd Filetype markdown nnoremap <buffer> <Space>a [](<++>) <++><Esc>F[a
+" autocmd Filetype markdown nnoremap <buffer> <Space>1 #<Space><Enter><++><Esc>kA
+" autocmd Filetype markdown nnoremap <buffer> <Space>2 ##<Space><Enter><++><Esc>kA
+" autocmd Filetype markdown nnoremap <buffer> <Space>3 ###<Space><Enter><++><Esc>kA
+" autocmd Filetype markdown nnoremap <buffer> <Space>4 ####<Space><Enter><++><Esc>kA
+" autocmd Filetype markdown nnoremap <buffer> <Space>l --------<Enter>
