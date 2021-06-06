@@ -6,27 +6,27 @@
 
 ## Screenshot
 
-![test](https://github.com/notfornothing/Vim/blob/main/test.png)
+![test](./test.png)
 
 
 
 ## Configuration
 
-* [.vimrc](https://github.com/notfornothing/Vim/blob/main/.vimrc)
+* [.vimrc](./.vimrc)
 
   > for gVim
 
-* [.ideavimrc](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)
+* [.ideavimrc](./.ideavimrc)
 
   > for IntelliJ IDEA
 
-Well,there are some [tips](https://github.com/notfornothing/Vim/blob/main/Tips.md).
+Well,there are some [tips](./Tips.md).
 
 ## Installation
 
 * Windows:
 
-  * [gVim](https://github.com/notfornothing/Vim/tree/main/gvim)
+  * [gVim](./gvim)
 
     > **Windows64位安装:**
     >
@@ -52,6 +52,6 @@ Well,there are some [tips](https://github.com/notfornothing/Vim/blob/main/Tips.m
 
   * IdeaVim
     
-      >  把配置文件[.ideavim](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)放入$HOME目录即可
+      >  把配置文件[.ideavim](./.ideavimrc)放入$HOME目录即可
 
 
