@@ -14,7 +14,7 @@
 
 * Windows:
 
-  * gVim
+  * [gVim](https://github.com/notfornothing/Vim/tree/main/gvim)
 
     ### Windows64位安装:
 
@@ -40,8 +40,8 @@
 
   * IdeaVim
 
-    把配置文件(.ideavim)[https://github.com/notfornothing/Vim/blob/main/.ideavimrc]放入$HOME目录即可
+    把配置文件[.ideavim](https://github.com/notfornothing/Vim/blob/main/.ideavimrc)放入$HOME目录即可
 
   
 
-## (Tips)[https://github.com/notfornothing/Vim/blob/main/Tips.md]
+## [Tips](https://github.com/notfornothing/Vim/blob/main/Tips.md)
