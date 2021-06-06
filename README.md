@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![test](C:\Users\79895\Desktop\Vim\test.png)
+![test](https://github.com/notfornothing/Vim/blob/main/test.png)
 
 
 
@@ -40,8 +40,8 @@
 
   * IdeaVim
 
-    把(配置文件)[]放入$HOME目录即可
+    把配置文件(.ideavim)[https://github.com/notfornothing/Vim/blob/main/.ideavimrc]放入$HOME目录即可
 
   
 
-## (Tips)[]
+## (Tips)[https://github.com/notfornothing/Vim/blob/main/Tips.md]
