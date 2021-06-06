@@ -31,8 +31,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " 高亮复制显示
 Plug 'machakann/vim-highlightedyank'
 
+" 环绕字符编辑
 Plug 'tpope/vim-surround'
 
+" 参数文本对象
 Plug 'https://github.com/vim-scripts/argtextobj.vim.git'
  
 call plug#end() 
