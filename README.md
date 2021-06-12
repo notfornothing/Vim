@@ -5,53 +5,62 @@
 
 
 ## Screenshot
+nvim-qt:
 
-![test](./test.png)
+![test](./example.png)
 
 
 
 ## Configuration
+* [init.vim](./init.vim)
+  > for Neovim
 
-* [.vimrc](./.vimrc)
-
-  > for gVim
+* [ginit.vim](./ginit.vim)
+  > for Neovim-qt config
 
 * [.ideavimrc](./.ideavimrc)
 
   > for IntelliJ IDEA
 
+* [.vimrc](./.vimrc)
+
+  > for gVim
+
 Well,there are some [tips](./Tips.md).
 
 ## Installation
 
-* Windows:
 
-  * [gVim](./gvim)
+**Windows:**
+---
 
-    > **Windows64位安装:**
-    >
-    > 将下列文件放入$HOME目录下
-    >
-    > * .vim
-    >
-    >   >  里面放了plug-vim管理的插件
-    >
-    > * vimfiles
-    >
-    >   > 里面只有plug.vim用来管理插件,需要放在该$HOME目录下，或者放入Vim安装的autoload里面。我都放了
-    >
-    > * .vimrc
-    >
-    >   > 存放配置文件
-    >
-    > 将下列文件放入任意安装目录
-    >
-    > * Vim
-    >
-    >   > 安装gVim的文件
+
+
+* Neovim
+
+  > [init.vim](./init.vim) 和 [ginit.vim](./ginit.vim)  放入 `$HOME/AppData/Local/nvim/`  文件夹下
+
+  > plug.vim  放入 `AppData\Local\nvim-data\site\autoload` 文件夹下，去他官网安装也是默认这个位置
+
+  > vim-plug 管理的插件在`~/AppData/Local/nvim/plugged` 里面，可以在 init.vim 中#begin() 参数处更改位置
+
+---
+
 
   * IdeaVim
-    
-      >  把配置文件[.ideavim](./.ideavimrc)放入$HOME目录即可
+
+      >  把配置文件 [.ideavim](./.ideavimrc) 放入 `$HOME`  目录即可
+  ---
+
+
+  * gvim -- 不推荐，有很多 bug
+
+    > [.vimrc](./vimrc)  放入`~/` 文件夹下面
+
+    > plug.vim 放入`./vimfiles/autoload/` 文件夹下
+
+
+    > vim-plug 管理的插件在 `~/.vim` 里面
+
 
 
