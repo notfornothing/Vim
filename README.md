@@ -42,7 +42,7 @@ Well,there are some [tips](./Tips.md).
 
   > plug.vim  放入 `AppData\Local\nvim-data\site\autoload` 文件夹下，去他官网安装也是默认这个位置
 
-  > vim-plug 管理的插件在`~/AppData/Local/nvim/plugged` 里面，可以在 init.vim 中 [#begin()](/blob/main/init.vim#L8)  参数处更改位置
+  > vim-plug 管理的插件在`~/AppData/Local/nvim/plugged` 里面，可以在 init.vim 中 [#begin()](./init.vim#L8)  参数处更改位置
 
 ---
 

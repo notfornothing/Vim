@@ -3,7 +3,6 @@
 let g:python3_host_prog = 'C:\Python38\python.exe'
 let g:python_host_prog  = 'C:\Python27\python.exe'
 
-
 """"""""""""""""""""""""""""""" vim-plug 插件的配置文件"""""""""""""""""""""""
 call plug#begin('~/AppData/Local/nvim/plugged')
 " 注释
