@@ -2,9 +2,12 @@
 " Get good ,get vim"
 " 不要一味的折腾Vim,多敲才是硬道理"
 
-"  使vimrc文件里面生效========================没用过
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
+autocmd BufWritePost $MYVIMRC source ~/.ideavimrc
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"  使vimrc文件里面生效========================没用过
+
+set keep-english-in-normal-and-restore-in-insert
 " 设置自己的leader"
 let mapleader=" "
 
@@ -16,8 +19,13 @@ set hlsearch
 " 自动定位到输入中的字符串，不需要回车搜索
 set incsearch
 "取消搜索后的高亮"
-nnoremap <Esc> :nohlsearch<CR>
+nnoremap <ESC> :nohlsearch<CR>
 set ignorecase smartcase
+
+
+
+
+
 
 " 没有递归禁用insert模式下方向键"
 inoremap <Up> <Nop>
@@ -42,7 +50,7 @@ nmap J 3j
 nmap K 3k
 "  行首和行尾 要弄成递归的,不然命令组合的时候不能调用 比如dL dH vL vH vJ vK"
 nnoremap L $
-nnoremap H ^
+noremap H ^
 vnoremap L $
 vnoremap H ^
 map L $
@@ -56,6 +64,8 @@ nnoremap U <C-r>
 "  查找"
 nnoremap <C-f> :/
 
+set visualbell
+set noerrorbells
 
 " 预留50行 scroll offset"
 set scrolloff=10
@@ -65,11 +75,9 @@ set scrolloff=10
 nnoremap <leader>r :action RunClass <CR>
 nnoremap <C-l> :action EditorCompleteStatement<CR>
 inoremap <C-l> <Esc>:action EditorCompleteStatement<CR>i
-nnoremap <leader>l gt
-nnoremap <leader>h gT
-nnoremap <leader>s :action Stop<CR>
+"nnoremap <leader>l gt
+"nnoremap <leader>h gT
 
-nnoremap <leader>s :source ~/.ideavimrc<CR>
 
 " 打开网页
 " nnoremap <leader>w :action WebOpenInAction<CR>
@@ -79,23 +87,27 @@ inoremap <C-f> <ESC>/
 set clipboard+=unnamed
 
 
+" IDEA JavaDoc"
+nnoremap <Leader>p <C-q>
 
 " quit ==> close current window
+nnoremap <leader>s :source ~/.ideavimrc<CR>
 nnoremap <Leader>q :wq<Cr>
+nnoremap <S>zz :q<Cr>
 
 " Window operation
 " (关于窗口操作)
-nnoremap <Leader>ww <C-w>w
-nnoremap <Leader>wc <C-W>c
-nnoremap <Leader>wo :only<Cr>
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
-nnoremap <Leader>ws <C-W>s
-nnoremap <Leader>w- <C-W>s
-nnoremap <Leader>wv <C-W>v
-nnoremap <Leader>w\| <C-W>v
+" nnoremap <Leader>ww <C-w>w
+" nnoremap <Leader>wc <C-W>c
+" nnoremap <Leader>wo :only<Cr>
+" nnoremap <Leader>wj <C-W>j
+" nnoremap <Leader>wk <C-W>k
+" nnoremap <Leader>wh <C-W>h
+" nnoremap <Leader>wl <C-W>l
+" nnoremap <Leader>ws <C-W>s
+" nnoremap <Leader>w- <C-W>s
+" nnoremap <Leader>wv <C-W>v
+" nnoremap <Leader>w\| <C-W>v
 
 
 
@@ -113,4 +125,9 @@ set textobj-entire
 set highlightedyank
 set exchange
 set easymotion
+set sneak
 
+
+
+nnoremap <C-S-v> <C-v>
+nnoremap <C-v> p
