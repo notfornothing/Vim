@@ -6,8 +6,7 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 let g:python3_host_prog = 'C:\Python38\python.exe'
 let g:python_host_prog  = 'C:\Python27\python.exe'
 
-
-set guifont=Consolas:h14
+set mouse=a
 
 """"""""""""""""""""""""""""""" vim-plug 插件的配置文件"""""""""""""""""""""""
 call plug#begin('~/AppData/Local/nvim/plugged')
@@ -22,8 +21,8 @@ Plug 'Yggdroot/indentLine'
 " 注释
 Plug 'preservim/nerdcommenter'
 
-" vim 标记bookmark
-Plug 'https://github.com/kshenoy/vim-signature'
+" vim 标记 bookmark
+" Plug 'https://github.com/kshenoy/vim-signature'
 
 " dracula 主题
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -90,6 +89,16 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""vim-plug 结束""""""""""""""""""""""""""""""""""""""""
 
 
+" nvimQT_Shift_Insert
+inoremap <silent>  <S-Insert>  <C-R>+
+nnoremap <silent>  <S-Insert>  i<C-R>+<Esc>
+cnoremap <silent>  <S-Insert>  <C-R>*
+
+
+nnoremap <silent> <leader>q o<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>.<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
+nnoremap <silent> <leader>o :tabnew<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>·<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
+nnoremap <silent> <leader>r :<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>·<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
+
 
 " 设置 leader 为空格"
 let mapleader=" "
@@ -113,7 +122,7 @@ set ignorecase smartcase
 " inoremap <Down> <Nop>
 " inoremap <Left> <Nop>
 " inoremap <Right> <Nop>
-" 
+"
 " " 没有递归禁用 normal 模式下方向键"
 " nnoremap <Up> <Nop>
 " nnoremap <Down> <Nop>
@@ -121,6 +130,7 @@ set ignorecase smartcase
 " nnoremap <Right> <Nop>
 
 " redo"
+nnoremap <C-r> <Nop>
 nnoremap U <C-r>
 
 " 预留 10 行 scroll offset"
@@ -185,7 +195,7 @@ nnoremap <C-Down> ddp
 nnoremap <C-S-v> <C-v>
 nnoremap <C-v> p
 
-" gi居中
+" gi 居中
 nnoremap gi gi<ESC>zza
 
 " Vim 搜索结果居中展示
@@ -275,7 +285,6 @@ nmap <Leader>s :w<CR>
 " 保存并且退出标签栏
 nnoremap <S-z>Z :w!<CR>:bd!<CR>
 " 保存并且退出窗口
-nnoremap <Leader>q :wq!<Cr>
 
 nnoremap <C-c> yy
 nnoremap <C-v> p
@@ -328,6 +337,11 @@ filetype on
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
+
+
+nnoremap <leader>m :MarkdownPreview<CR>
+
+
 
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
@@ -433,7 +447,7 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 " inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
 " inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 " inoremap <buffer> ,l --------<Enter>
-" 
+"
 " nnoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
 " nnoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
 " nnoremap <buffer> ,n ---<Enter><Enter>
@@ -464,7 +478,7 @@ map T <Plug>Sneak_T
 map ; <Plug>Sneak_;zz
 map , <Plug>Sneak_,zz
 
-" 
+"
 let g:sneak#use_ic_scs = 1
 
 " Use K to show documentation in preview window.
@@ -491,3 +505,13 @@ if has("persistent_undo")
     let &undodir=target_path
     set undofile
 endif
+
+
+" gvim
+"" gvim 如何设置每次启动编辑器时自动载入上次关闭时打开的文件？
+autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
+    \ call mkdir($HOME . "/.vim") |
+    \ endif |
+    \ execute "mksession! " . $HOME . "/.vim/Session.vim"
+
+
