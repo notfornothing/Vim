@@ -1,0 +1,12 @@
+map("J", "d");
+map("K", "u");
+map("<Space>l", "R");
+map("<Space>h", "E");
+
+vmap("H","0");
+vmap("L","$");
+vmap("J","3j");
+vmap("K","3k");
+map('H', 'S');
+map('L', 'D');
+map('F', 'gf');

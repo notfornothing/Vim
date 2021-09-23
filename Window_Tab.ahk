@@ -27,10 +27,34 @@
 	    send #{down}
 	    return
 	}
+
+
+	
 ^n::
 send {down}
 return
+
 ^p::
 send {up}
 return 
+
+^h::
+send {left}
+return
+
+^l::
+send {right}
+return
+	
+#IFWinActive ahk_exe chrome.exe
+	$^l::
+		send ^l
+	return
+
+
+#IFWinActive ahk_exe msedge.exe
+	$^l::
+		send ^l
+	return
+
 
