@@ -2,7 +2,6 @@
 " Get good ,get vim"
 " 不要一味的折腾Vim,多敲才是硬道理"
 
-
 autocmd BufWritePost $MYVIMRC source ~/.ideavimrc
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 "  使vimrc文件里面生效========================没用过
@@ -23,20 +22,16 @@ nnoremap <ESC> :nohlsearch<CR>
 set ignorecase smartcase
 
 
-
-
-
-
 " 没有递归禁用insert模式下方向键"
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-"  没有递归禁用normal模式下方向键"
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
+"inoremap <Up> <Nop>
+"inoremap <Down> <Nop>
+"inoremap <Left> <Nop>
+"inoremap <Right> <Nop>
+""  没有递归禁用normal模式下方向键"
+"nnoremap <Up> <Nop>
+"nnoremap <Down> <Nop>
+"nnoremap <Left> <Nop>
+"nnoremap <Right> <Nop>
 "  上下移动且保持居中"
 nnoremap j jzz
 nnoremap k kzz
@@ -62,7 +57,7 @@ unmap <C-r> " 我觉得也等于map <C-r> <Nop>"
 "  这里换map不行 因为nnormap不会做进一步的映射 不会再对C-r做进一步扫描,一般用于重定义一个命令"
 nnoremap U <C-r>
 "  查找"
-nnoremap <C-f> :/
+" nnoremap <C-f> /
 
 set visualbell
 set noerrorbells
@@ -72,15 +67,31 @@ set scrolloff=10
 
 
 " IDEA method"
-nnoremap <leader>r :action RunClass <CR>
-nnoremap <C-l> :action EditorCompleteStatement<CR>
-inoremap <C-l> <Esc>:action EditorCompleteStatement<CR>i
+nnoremap <leader>r :action RunClass<CR>
+nnoremap <leader>d :action Debug<CR>
+
+nnoremap <leader>l :action NextTab<CR>
+nnoremap <leader>h :action PreviousTab<CR>
+
+nnoremap <Right> :action EditorCompleteStatement<CR>
+inoremap <Right> <Esc>:action EditorCompleteStatement<CR>i
 "nnoremap <leader>l gt
 "nnoremap <leader>h gT
+
+" jump to next error
+noremap <leader>j <ESC>:action GotoNextError<CR>
+" jump to previous error，就近原则
+noremap <leader>k <ESC>:action GotoPreviousError<CR>
+
+
+nnoremap <leader>p <C-A-Left>
+nnoremap <leader>n <C-A-Right>
 
 
 " 打开网页
 " nnoremap <leader>w :action WebOpenInAction<CR>
+
+
 nnoremap <C-f> /
 inoremap <C-f> <ESC>/
 "解决IDEA系统剪贴板不能用的问题"
@@ -88,7 +99,7 @@ set clipboard+=unnamed
 
 
 " IDEA JavaDoc"
-nnoremap <Leader>p <C-q>
+" nnoremap <Leader>p <C-q>
 
 " quit ==> close current window
 nnoremap <leader>s :source ~/.ideavimrc<CR>
@@ -110,12 +121,9 @@ nnoremap <S>zz :q<Cr>
 " nnoremap <Leader>w\| <C-W>v
 
 
+set sneak
 
-
-" jump to next error
-noremap <leader>j <ESC>:action GotoNextError<CR>
-" jump to previous error，就近原则
-noremap <leader>k <ESC>:action GotoPreviousError<CR>
+vmap S <Plug>VSurround
 
 set esay-motion
 set NERDTree
@@ -125,9 +133,49 @@ set textobj-entire
 set highlightedyank
 set exchange
 set easymotion
-set sneak
+set multiple-cursors
 
 
-
+" 重构"
+nnoremap R :action RenameElement<CR>
 nnoremap <C-S-v> <C-v>
 nnoremap <C-v> p
+
+nnoremap n nzz
+nnoremap N Nzz
+
+
+
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+sethandler <C-S-6> a:ide
+sethandler <C-;> a:vim
+sethandler <C-S-;> a:vim
+sethandler <C-A> a:vim
+sethandler <C-B> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:ide
+" sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-H> a:ide
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:ide
+sethandler <C-M> a:ide
+sethandler <C-N> a:ide
+sethandler <C-O> a:vim
+sethandler <C-Q> a:ide
+sethandler <C-R> a:ide
+sethandler <C-S> a:ide
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> a:ide
+sethandler <C-S-V> a:vim
+sethandler <C-W> a:vim
+sethandler <C-X> a:vim
+sethandler <C-Y> a:vim
+sethandler <C-[> a:vim
+sethandler <C-]> a:vim
+

@@ -1,5 +1,5 @@
 " Create By JackSparrow"
-" set good ,get vim"
+" get good ,get vim"
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 
@@ -8,56 +8,77 @@ let g:python_host_prog  = 'C:\Python27\python.exe'
 
 set mouse=a
 
-""""""""""""""""""""""""""""""" vim-plug ²å¼şµÄÅäÖÃÎÄ¼ş"""""""""""""""""""""""
+""""""""""""""""""""""""""""""" vim-plug æ’ä»¶çš„é…ç½®æ–‡ä»¶"""""""""""""""""""""""
 call plug#begin('~/AppData/Local/nvim/plugged')
 
+" markdown img paste
+" Plug 'ferrine/md-img-paste.vim'
+"
+" å¤šå…‰æ ‡æ¨¡å¼
+Plug 'terryma/vim-multiple-cursors'
+"
+" åˆ‡æ¢ä¸­æ–‡è‹±æ–‡ï¼Œè²Œä¼¼æ²¡ç”¨
+Plug 'lilydjwg/fcitx.vim'
+"
+" é¦–é¡µçš„å•¥
+Plug 'mhinz/vim-startify'
+"
+" å¯åŠ¨æ—¶é—´
+Plug 'dstein64/vim-startuptime'
+"
+" é€‰æ‹©å…¨éƒ¨
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+
+"
+Plug 'gcmt/wildfire.vim'
 
 " s{char}{char}
 Plug 'justinmk/vim-sneak'
 
-" ¿Õ¸ñËõ½øÏß
+" ç©ºæ ¼ç¼©è¿›çº¿
 Plug 'Yggdroot/indentLine'
 
-" ×¢ÊÍ
+" æ³¨é‡Š
 Plug 'preservim/nerdcommenter'
 
-" vim ±ê¼Ç bookmark
+" vim æ ‡è®° bookmark
 " Plug 'https://github.com/kshenoy/vim-signature'
 
-" dracula Ö÷Ìâ
+" dracula ä¸»é¢˜
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" airline ÏÂ±ß×´Ì¬À¸£¬ÉÏ±ß×´Ì¬À¸ĞèÒªÉèÖÃÒ»ÏÂ =1 µÄÃüÁî
+" airline ä¸‹è¾¹çŠ¶æ€æ ï¼Œä¸Šè¾¹çŠ¶æ€æ éœ€è¦è®¾ç½®ä¸€ä¸‹ =1 çš„å‘½ä»¤
 " let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline'
 
-" airline_theme ×´Ì¬À¸ÑÕÉ«ÎÒÓÃ
+" airline_theme çŠ¶æ€æ é¢œè‰²æˆ‘ç”¨
 " let g:airline_theme='deus'
 Plug 'vim-airline/vim-airline-themes'
 
-" ÎÄ¼ş¿ìËÙËÑË÷
+" æ–‡ä»¶å¿«é€Ÿæœç´¢
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" ¸ßÁÁ¸´ÖÆÏÔÊ¾
+" é«˜äº®å¤åˆ¶æ˜¾ç¤º
 Plug 'machakann/vim-highlightedyank'
 
-" »·ÈÆ×Ö·û±à¼­
+" ç¯ç»•å­—ç¬¦ç¼–è¾‘
 Plug 'tpope/vim-surround'
 
-" ²ÎÊıÎÄ±¾¶ÔÏó
+" å‚æ•°æ–‡æœ¬å¯¹è±¡
 Plug 'https://github.com/vim-scripts/argtextobj.vim.git'
 
-" ÎÄ×ÖºÍÊı×Ö¼Ó¿Õ¸ñ
+" æ–‡å­—å’Œæ•°å­—åŠ ç©ºæ ¼
 Plug 'https://github.com/hotoo/pangu.vim.git'
 
-" ½»»»²å¼ş
+" äº¤æ¢æ’ä»¶
 Plug 'https://github.com/tommcdo/vim-exchange.git'
 
-" ¿ìËÙÌø×ª
+" å¿«é€Ÿè·³è½¬
 Plug 'easymotion/vim-easymotion'
 
-" µ±Ç°×ÖÄ¸¸ßÁÁ
+" å½“å‰å­—æ¯é«˜äº®
 " Plug 'https://github.com/itchyny/vim-cursorword.git'
 
 
@@ -66,16 +87,16 @@ Plug 'easymotion/vim-easymotion'
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" markdown Á´½Ó
-Plug 'vimwiki/vimwiki'
+" markdown é“¾æ¥
+" Plug 'vimwiki/vimwiki'
 
-" markdown Ä¿Â¼
+" markdown ç›®å½•
 Plug 'mzlogin/vim-markdown-toc'
 
-" ¶à¹â±ê
+" å¤šå…‰æ ‡
 Plug 'terryma/vim-multiple-cursors'
 
-"¹ØÓÚĞ´ÈëÄ£Ê½ºÍÆÕÍ¨Ä£Ê½µÄÖĞÎÄÊäÈë·¨ÇĞ»»ÎÊÌâ£¬ÓÃÁìÁìµ¼ tx µÄ¿ÉÒÔÖ±½Ó°ÑÁ´½ÓÄÚµÄÖ¸Áî¼Óµ½ÅäÖÃÎÄ¼ş£¬ÍË³öĞ´ÈëÄ£Ê½¾Í²»ÓÃ´ÓÖĞÎÄÇĞÓ¢ÎÄÁË
+"å…³äºå†™å…¥æ¨¡å¼å’Œæ™®é€šæ¨¡å¼çš„ä¸­æ–‡è¾“å…¥æ³•åˆ‡æ¢é—®é¢˜ï¼Œç”¨é¢†é¢†å¯¼ tx çš„å¯ä»¥ç›´æ¥æŠŠé“¾æ¥å†…çš„æŒ‡ä»¤åŠ åˆ°é…ç½®æ–‡ä»¶ï¼Œé€€å‡ºå†™å…¥æ¨¡å¼å°±ä¸ç”¨ä»ä¸­æ–‡åˆ‡è‹±æ–‡äº†
 "http://fcitx.github.io/handbook/chapter-remote.html
 
 " Use release branch (recommend)
@@ -86,7 +107,7 @@ Plug 'mbbill/undotree'
 
 "auto save
 call plug#end()
-""""""""""""""""""""""""""""""""""""""vim-plug ½áÊø""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""vim-plug ç»“æŸ""""""""""""""""""""""""""""""""""""""""
 
 
 " nvimQT_Shift_Insert
@@ -96,34 +117,34 @@ cnoremap <silent>  <S-Insert>  <C-R>*
 
 
 nnoremap <silent> <leader>q o<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>.<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
-nnoremap <silent> <leader>o :tabnew<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>¡¤<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
-nnoremap <silent> <leader>r :<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>¡¤<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
+nnoremap <silent> <leader>o :tabnew<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>ãƒ»<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
+nnoremap <silent> <leader>r :<CR>i<C-r>=strftime("%H`%M`%S %Y-%m-%d")<CR>ãƒ»<Esc>xF`r.;.dd:w ~/Desktop/<C-r>+.md<CR>
 
 
-" ÉèÖÃ leader Îª¿Õ¸ñ"
+" è®¾ç½® leader ä¸ºç©ºæ ¼"
 let mapleader=" "
 " set mouseBehavior
 set mouse=a
-" ÉèÖÃÏà¶ÔĞĞºÅ"
+" è®¾ç½®ç›¸å¯¹è¡Œå·"
 set rnu
-" ÉèÖÃĞĞºÅ
+" è®¾ç½®è¡Œå·
 set nu
-"ÉèÖÃ¸ßÁÁ"
+"è®¾ç½®é«˜äº®"
 set hlsearch
-" ×Ô¶¯¶¨Î»µ½ÊäÈëÖĞµÄ×Ö·û´®£¬²»ĞèÒª»Ø³µËÑË÷
+" è‡ªåŠ¨å®šä½åˆ°è¾“å…¥ä¸­çš„å­—ç¬¦ä¸²ï¼Œä¸éœ€è¦å›è½¦æœç´¢
 set incsearch
-" È¡ÏûËÑË÷ºóµÄ¸ßÁÁ"
+" å–æ¶ˆæœç´¢åçš„é«˜äº®"
 nnoremap <silent> <Esc> :nohlsearch<CR>
-" ×Ô¶¯ºöÂÔ´óĞ¡Ğ´
+" è‡ªåŠ¨å¿½ç•¥å¤§å°å†™
 set ignorecase smartcase
 
-" Ã»ÓĞµİ¹é½ûÓÃ insert Ä£Ê½ÏÂ·½Ïò¼ü"
+" æ²¡æœ‰é€’å½’ç¦ç”¨ insert æ¨¡å¼ä¸‹æ–¹å‘é”®"
 " inoremap <Up> <Nop>
 " inoremap <Down> <Nop>
 " inoremap <Left> <Nop>
 " inoremap <Right> <Nop>
 "
-" " Ã»ÓĞµİ¹é½ûÓÃ normal Ä£Ê½ÏÂ·½Ïò¼ü"
+" " æ²¡æœ‰é€’å½’ç¦ç”¨ normal æ¨¡å¼ä¸‹æ–¹å‘é”®"
 " nnoremap <Up> <Nop>
 " nnoremap <Down> <Nop>
 " nnoremap <Left> <Nop>
@@ -133,24 +154,24 @@ set ignorecase smartcase
 nnoremap <C-r> <Nop>
 nnoremap U <C-r>
 
-" Ô¤Áô 10 ĞĞ scroll offset"
+" é¢„ç•™ 10 è¡Œ scroll offset"
 " set scrolloff=10
 
-" ×óÓÒ±êÇ©À¸
-nnoremap <leader>l :bn!<CR>
-nnoremap <leader>h :bp!<CR>
+" å·¦å³æ ‡ç­¾æ 
+nnoremap  <leader>l :bn!<CR>
+nnoremap  <leader>h :bp!<CR>
 
 
-" ÉÏÏÂÒÆ¶¯ÇÒ±£³Ö¾ÓÖĞ"
-" ¹â±êÒÆ¶¯Êµ¼ÊĞĞÓëÆÁÄ»ĞĞ
+" ä¸Šä¸‹ç§»åŠ¨ä¸”ä¿æŒå±…ä¸­"
+" å…‰æ ‡ç§»åŠ¨å®é™…è¡Œä¸å±å¹•è¡Œ
 "
-" ¿ìËÙÌø×ª
+" å¿«é€Ÿè·³è½¬
 vnoremap J 3jzz
 vnoremap K 3kzz
 nnoremap J 3jzz
 nnoremap K 3kzz
-" ²»ĞĞ£¬ÎÒ¹À¼ÆÊÇÏÂÃæµÄ j Ó³ÉäÉÏÀ´ÁË£¬ÒòÎªÎÒÓÃ g3j Ö»ÓĞÒ»ĞĞµÄĞ§¹û
-" ´ÀÒ»µãµÄ°ì·¨ gjzzgjzzgjzz ÕâÑùµÄÈ±µã¾ÍÊÇ»á»¬Ò»ÏÂ £º
+" ä¸è¡Œï¼Œæˆ‘ä¼°è®¡æ˜¯ä¸‹é¢çš„ j æ˜ å°„ä¸Šæ¥äº†ï¼Œå› ä¸ºæˆ‘ç”¨ g3j åªæœ‰ä¸€è¡Œçš„æ•ˆæœ
+" è ¢ä¸€ç‚¹çš„åŠæ³• gjzzgjzzgjzz è¿™æ ·çš„ç¼ºç‚¹å°±æ˜¯ä¼šæ»‘ä¸€ä¸‹ ï¼š
 " vnoremap J gjgjgjzz
 " vnoremap K gkgkgkzz
 " nnoremap J gjgjgjzz
@@ -167,56 +188,53 @@ nnoremap gj jzz
 vnoremap gk gkzz
 vnoremap gj gjzz
 
-" ¿ì½İÆÁÄ»ĞĞ×óÓÒ
+" å¿«æ·å±å¹•è¡Œå·¦å³
 vnoremap L g$h
 vnoremap H g^
 nnoremap L g$
 nnoremap H g^
 
 
-" Ô­Ê¼ÃüÁî gj ¾ÍÊÇÆÁÄ»ĞĞÏòÏÂ£¬j ÃüÁî¾ÍÊÇÊµ¼ÊĞĞÏòÏÂ£¬ËùÒÔÎªÁË²Ù×÷·½±ã»»Ò»ÏÂ¡£ÆäËûµÄ²»»»ÊÇÒòÎª¿´×ÅÈİÒ×ÂÒ£¬ÕâÀïÖ»ÊÇ×öÒ»ÏÂ½âÊÍ£¬ÒòÎª´ó²¿·Ö»¹ÊÇÆÁÄ»ĞĞÓÃµÄ¶à£¬²»¹ıĞĞÊıÌø×ªĞèÒª×¢Òâ¾ÍÊÇ
-" ÏÂÃæ¿ÉÒÔÓÃÀ´×ö²âÊÔ
-" ÓëĞí¶àÎÄ±¾±à¼­Æ÷²»Í¬£¬Vim »áÇø·ÖÊµ¼ÊĞĞÓëÆÁÄ»ĞĞ¡£µ± Vim µÄ wrap ÉèÖÃ±»ÆôÓÃÊ±£¨È±Ê¡ÆôÓÃ£©£¬Ã¿¸ö³¬³ö´°¿Ú¿í¶ÈµÄÎÄ±¾ĞĞ¶¼»á±»»ØÈÆÏÔÊ¾£¨×Ô¶¯»»ĞĞ£©£¬À´±£Ö¤ËùÓĞÎÄ±¾¶¼ÄÜÔÚµ±Ç°´°¿ÚÖĞÍêÕûÕ¹Ê¾³öÀ´¡£"Òò´Ë£¬ÎÄ¼şÖĞµÄÒ»ĞĞ¿ÉÄÜ»á±»ÏÔÊ¾ÎªÆÁÄ»ÉÏµÄÈô¸ÉĞĞ£¬´Ó¶ø³öÏÖÁË Vim Êµ¼ÊĞĞÓëÆÁÄ»ĞĞµÄ²îÒì¡£
+" åŸå§‹å‘½ä»¤ gj å°±æ˜¯å±å¹•è¡Œå‘ä¸‹ï¼Œj å‘½ä»¤å°±æ˜¯å®é™…è¡Œå‘ä¸‹ï¼Œæ‰€ä»¥ä¸ºäº†æ“ä½œæ–¹ä¾¿æ¢ä¸€ä¸‹ã€‚å…¶ä»–çš„ä¸æ¢æ˜¯å› ä¸ºçœ‹ç€å®¹æ˜“ä¹±ï¼Œè¿™é‡Œåªæ˜¯åšä¸€ä¸‹è§£é‡Šï¼Œå› ä¸ºå¤§éƒ¨åˆ†è¿˜æ˜¯å±å¹•è¡Œç”¨çš„å¤šï¼Œä¸è¿‡è¡Œæ•°è·³è½¬éœ€è¦æ³¨æ„å°±æ˜¯
+" ä¸‹é¢å¯ä»¥ç”¨æ¥åšæµ‹è¯•
+" ä¸è®¸å¤šæ–‡æœ¬ç¼–è¾‘å™¨ä¸åŒï¼ŒVim ä¼šåŒºåˆ†å®é™…è¡Œä¸å±å¹•è¡Œã€‚å½“ Vim çš„ wrap è®¾ç½®è¢«å¯ç”¨æ—¶ï¼ˆç¼ºçœå¯ç”¨ï¼‰ï¼Œæ¯ä¸ªè¶…å‡ºçª—å£å®½åº¦çš„æ–‡æœ¬è¡Œéƒ½ä¼šè¢«å›ç»•æ˜¾ç¤ºï¼ˆè‡ªåŠ¨æ¢è¡Œï¼‰ï¼Œæ¥ä¿è¯æ‰€æœ‰æ–‡æœ¬éƒ½èƒ½åœ¨å½“å‰çª—å£ä¸­å®Œæ•´å±•ç¤ºå‡ºæ¥ã€‚"å› æ­¤ï¼Œæ–‡ä»¶ä¸­çš„ä¸€è¡Œå¯èƒ½ä¼šè¢«æ˜¾ç¤ºä¸ºå±å¹•ä¸Šçš„è‹¥å¹²è¡Œï¼Œä»è€Œå‡ºç°äº† Vim å®é™…è¡Œä¸å±å¹•è¡Œçš„å·®å¼‚ã€‚
 
-" ²éÕÒ
+" æŸ¥æ‰¾
 nnoremap <C-f> /
 inoremap <C-f> <ESC>/
 
-"½â¾ö IDEA ÏµÍ³¼ôÌù°å²»ÄÜÓÃµÄÎÊÌâ"
-set clipboard+=unnamed
-
-" ÆÕÍ¨Ä£Ê½ÊµÏÖÒÆ¶¯ĞĞ
-" Î´ÊµÏÖ
+" æ™®é€šæ¨¡å¼å®ç°ç§»åŠ¨è¡Œ
+" æœªå®ç°
 nnoremap <C-Up> ddkP
 nnoremap <C-Down> ddp
 
-" ¿éÑ¡ÔñºÍÕ³Ìù
-" Î´ÊµÏÖ
+" å—é€‰æ‹©å’Œç²˜è´´
+" æœªå®ç°
 nnoremap <C-S-v> <C-v>
 nnoremap <C-v> p
 
-" gi ¾ÓÖĞ
+" gi å±…ä¸­
 nnoremap gi gi<ESC>zza
 
-" Vim ËÑË÷½á¹û¾ÓÖĞÕ¹Ê¾
+" Vim æœç´¢ç»“æœå±…ä¸­å±•ç¤º
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-" À¨ºÅ×Ô¶¯²¹È«
+" æ‹¬å·è‡ªåŠ¨è¡¥å…¨
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap < <><ESC>i
 
-" gv ÃüÁî¿ÉÒÔÓÃÓÚÖØĞÂÑ¡È¡ÉÏÒ»´ÎÓÉ¿ÉÊÓÄ£Ê½ËùÑ¡ÔñµÄÎÄ±¾·¶Î§
+" gv å‘½ä»¤å¯ä»¥ç”¨äºé‡æ–°é€‰å–ä¸Šä¸€æ¬¡ç”±å¯è§†æ¨¡å¼æ‰€é€‰æ‹©çš„æ–‡æœ¬èŒƒå›´
 vnoremap < <gv
 vnoremap > >gv
 
 " Window operation
-" £¨¹ØÓÚ´°¿Ú²Ù×÷£©
+" ï¼ˆå…³äºçª—å£æ“ä½œï¼‰
 " nnoremap <Leader>ww <C-w>w
 " nnoremap <Leader>wc <C-W>c
 " nnoremap <Leader>wo :only<Cr>
@@ -231,9 +249,9 @@ vnoremap > >gv
 
 
 
-" Ö÷Ìâ dracula
+" ä¸»é¢˜ dracula
 colorscheme dracula
-" ×ÖÌå
+" å­—ä½“
 
 set nobackup
 set noswapfile
@@ -245,26 +263,26 @@ set autoindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Òş²Ø GVIM ²Ëµ¥¼°ÉèÖÃ
+" éšè— GVIM èœå•åŠè®¾ç½®
 " source $VIMRUNTIME/delmenu.vim
 " source $VIMRUNTIME/menu.vim
-" ÉèÖÃ³õÊ¼½çÃæÎ»ÖÃ
+" è®¾ç½®åˆå§‹ç•Œé¢ä½ç½®
 " winpos 956 0
-" " ´°¿Ú´óĞ¡
+" " çª—å£å¤§å°
 " set lines=65 columns=95
-" " ²»ÏÔÊ¾¹¤¾ß / ²Ëµ¥À¸
+" " ä¸æ˜¾ç¤ºå·¥å…· / èœå•æ 
 " set guioptions-=T
 " set guioptions-=m
 " set guioptions-=L
 " set guioptions-=r
 " set guioptions-=b
-" " Ê¹ÓÃÄÚÖÃ tab ÑùÊ½¶ø²»ÊÇ gui
+" " ä½¿ç”¨å†…ç½® tab æ ·å¼è€Œä¸æ˜¯ gui
 " set guioptions-=e
 " set nolist
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " gvim
-"" gvim ÈçºÎÉèÖÃÃ¿´ÎÆô¶¯±à¼­Æ÷Ê±×Ô¶¯ÔØÈëÉÏ´Î¹Ø±ÕÊ±´ò¿ªµÄÎÄ¼ş£¿
+"" gvim å¦‚ä½•è®¾ç½®æ¯æ¬¡å¯åŠ¨ç¼–è¾‘å™¨æ—¶è‡ªåŠ¨è½½å…¥ä¸Šæ¬¡å…³é—­æ—¶æ‰“å¼€çš„æ–‡ä»¶ï¼Ÿ
 "autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
 "    \ call mkdir($HOME . "/.vim") |
 "    \ endif |
@@ -273,18 +291,18 @@ set autoindent
 "autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
 "    \ execute "source " . $HOME . "/.vim/Session.vim"
 
-" ¹Ø±Õ visual bell
+" å…³é—­ visual bell
 set visualbell t_vb=
-" ¹Ø±Õ beep
+" å…³é—­ beep
 au GuiEnter * set t_vb=
 
-" ±£´æ
+" ä¿å­˜
 nmap <Leader>s :w<CR>
-" ±£´æ
+" ä¿å­˜
 " nmap <C-s> :w!<CR>
-" ±£´æ²¢ÇÒÍË³ö±êÇ©À¸
+" ä¿å­˜å¹¶ä¸”é€€å‡ºæ ‡ç­¾æ 
 nnoremap <S-z>Z :w!<CR>:bd!<CR>
-" ±£´æ²¢ÇÒÍË³ö´°¿Ú
+" ä¿å­˜å¹¶ä¸”é€€å‡ºçª—å£
 
 nnoremap <C-c> yy
 nnoremap <C-v> p
@@ -306,29 +324,29 @@ inoremap <C-S-z> <Esc><C-r>
 let g:airline_theme='deus'
 let g:airline#extensions#tabline#enabled = 1
 
-" PanGu ×Ô¶¯¿Õ¸ñ²å¼ş
+" PanGu è‡ªåŠ¨ç©ºæ ¼æ’ä»¶
 autocmd BufWritePre *.vimrc,*.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing()
 
 "highlightedyank
 let g:highlightedyank_highlight_duration = 400
 
 
-" ½â¾ö Vim/Gvim ²åÈëÄ£Ê½ÏÂ backspace °´¼üÎŞ·¨É¾³ı×Ö·ûµÄÎÊÌâ
-" È¥µôÓĞ¹Ø Vi µÄÒ»ÖÂĞÔÄ£Ê½£¬±ÜÃâÖ®Ç°°æ±¾µÄ Bug£¬ÔÚÃüÁîÄ£Ê½ÏÂ£º
+" è§£å†³ Vim/Gvim æ’å…¥æ¨¡å¼ä¸‹ backspace æŒ‰é”®æ— æ³•åˆ é™¤å­—ç¬¦çš„é—®é¢˜
+" å»æ‰æœ‰å…³ Vi çš„ä¸€è‡´æ€§æ¨¡å¼ï¼Œé¿å…ä¹‹å‰ç‰ˆæœ¬çš„ Bugï¼Œåœ¨å‘½ä»¤æ¨¡å¼ä¸‹ï¼š
 set nocompatible
-" ÉèÖÃ backspace µÄ¹¤×÷·½Ê½£º
+" è®¾ç½® backspace çš„å·¥ä½œæ–¹å¼ï¼š
 set backspace=indent,eol,start
 
-" <leader>rc ¼ÓÔØ vimrc
+" <leader>rc åŠ è½½ vimrc
 nnoremap <leader>rc :e $HOME\AppData\Local\nvim\init.vim<CR>
-" <leader>rs ÖØĞÂ¼ÓÔØ vimrc
+" <leader>rs é‡æ–°åŠ è½½ vimrc
 nnoremap <leader>rs :source $HOME/AppData/Local/nvim/init.vim<CR>
 
 
 "cWith this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
 
-" ÉèÖÃ¹â±êµ±Ç°ĞĞ¸ßÁÁ
+" è®¾ç½®å…‰æ ‡å½“å‰è¡Œé«˜äº®
 set cursorline
 
 filetype on
@@ -350,7 +368,7 @@ let g:mkdp_auto_close = 0
 
 
 " coc setting
-" ÓÃ TAB Ñ¡ÔñµÚÒ»¸öºòÑ¡Ô¤ÀÀ£¬Ä¬ÈÏÇé¿öÊÇ²»Ñ¡µÄ
+" ç”¨ TAB é€‰æ‹©ç¬¬ä¸€ä¸ªå€™é€‰é¢„è§ˆï¼Œé»˜è®¤æƒ…å†µæ˜¯ä¸é€‰çš„
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -362,7 +380,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" ÔÚÓĞÌáÊ¾µÄÊ±ºò°´»Ø³µ¾ÍÊÇ»Ø³µ£¬¶ø²»ÊÇ²¹È«
+" åœ¨æœ‰æç¤ºçš„æ—¶å€™æŒ‰å›è½¦å°±æ˜¯å›è½¦ï¼Œè€Œä¸æ˜¯è¡¥å…¨
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -493,7 +511,7 @@ nnoremap <C-S-e> :FZF ~<CR>
 " undoTree
 nnoremap <A-2> :UndotreeToggle<CR>
 
-" ±¸·İ£¿
+" å¤‡ä»½ï¼Ÿ
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
     " create the directory and any parent directories
@@ -508,10 +526,36 @@ endif
 
 
 " gvim
-"" gvim ÈçºÎÉèÖÃÃ¿´ÎÆô¶¯±à¼­Æ÷Ê±×Ô¶¯ÔØÈëÉÏ´Î¹Ø±ÕÊ±´ò¿ªµÄÎÄ¼ş£¿
+"" gvim å¦‚ä½•è®¾ç½®æ¯æ¬¡å¯åŠ¨ç¼–è¾‘å™¨æ—¶è‡ªåŠ¨è½½å…¥ä¸Šæ¬¡å…³é—­æ—¶æ‰“å¼€çš„æ–‡ä»¶ï¼Ÿ
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
     \ call mkdir($HOME . "/.vim") |
     \ endif |
     \ execute "mksession! " . $HOME . "/.vim/Session.vim"
 
+" vim-markdown-toc 
+" é»˜è®¤ * å· å˜æˆ - + å· æºç å¯è¯»æ€§æé«˜,markdownæ ·å¼æ˜¯ä¸ä¼šå˜çš„
+let g:vmt_cycle_list_item_markers = 1
+
+
+
+" wildfire.vim
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+
+
+nnoremap Q :q!<CR>
+
+
+" If set to 0, insert mappings won't be supported in Insert mode anymore.
+let g:multi_cursor_support_imap=0
+
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<A-n>'
+let g:multi_cursor_select_all_word_key = 'R'
+let g:multi_cursor_next_key            = '<A-n>'
+let g:multi_cursor_prev_key            = '<A-p>'
+let g:multi_cursor_skip_key            = '<A-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
