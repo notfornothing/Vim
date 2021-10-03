@@ -57,4 +57,12 @@ return
 		send ^l
 	return
 
-
+#IFWinActive ahk_exe Xshell.exe
+	$^h::
+		send ^h
+	return
+	
+#IFWinActive ahk_exe Xshell.exe
+	$^l::
+		send ^l
+	return
