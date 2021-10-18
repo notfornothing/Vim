@@ -78,6 +78,10 @@ inoremap <Right> <Esc>:action EditorCompleteStatement<CR>i
 "nnoremap <leader>l gt
 "nnoremap <leader>h gT
 
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
+
 " jump to next error
 noremap <leader>j <ESC>:action GotoNextError<CR>
 " jump to previous error，就近原则
@@ -145,7 +149,6 @@ nnoremap n nzz
 nnoremap N Nzz
 
 
-
 sethandler <C-2> a:ide
 sethandler <C-S-2> a:ide
 sethandler <C-S-6> a:ide
@@ -179,3 +182,5 @@ sethandler <C-Y> a:vim
 sethandler <C-[> a:vim
 sethandler <C-]> a:vim
 
+
+nnoremap Q :q!<CR>
