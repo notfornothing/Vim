@@ -28,41 +28,53 @@
 	    return
 	}
 
-
-	
-^n::
+<^n::
 send {down}
 return
 
-^p::
+<^p::
 send {up}
 return 
 
-^h::
+<^h::
 send {left}
 return
 
-^l::
+<^l::
 send {right}
 return
-	
+
+
 #IFWinActive ahk_exe chrome.exe
-	$^l::
-		send ^l
+	<^l::
+		send {right}
+	return
+	<^+l::
+		send <^l
 	return
 
-
 #IFWinActive ahk_exe msedge.exe
-	$^l::
+	<^l::
+		send {right}
+	return
+	<^+l::
 		send ^l
 	return
 
 #IFWinActive ahk_exe Xshell.exe
-	$^h::
+	<^h::
 		send ^h
 	return
 	
 #IFWinActive ahk_exe Xshell.exe
-	$^l::
+	<^l::
 		send ^l
+	return
+
+#IFWinActive ahk_exe postman.exe
+	<^l::
+		send {right}
+	return
+	<^+l::
+		send <^l
 	return
