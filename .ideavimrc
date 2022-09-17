@@ -1,30 +1,30 @@
 " Create By JackSparrow"
 " Get good ,get vim"
-" ä¸è¦ä¸€å‘³çš„æŠ˜è…¾Vim,å¤šæ•²æ‰æ˜¯ç¡¬é“ç†"
+" ²»ÒªÒ»Î¶µÄÕÛÌÚVim,¶àÇÃ²ÅÊÇÓ²µÀÀí"
 
 autocmd BufWritePost $MYVIMRC source ~/.ideavimrc
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
-"  ä½¿vimrcæ–‡ä»¶é‡Œé¢ç”Ÿæ•ˆ========================æ²¡ç”¨è¿‡
+"  Ê¹vimrcÎÄ¼şÀïÃæÉúĞ§========================Ã»ÓÃ¹ı
 
 set keep-english-in-normal-and-restore-in-insert
-" è®¾ç½®è‡ªå·±çš„leader"
+" ÉèÖÃ×Ô¼ºµÄleader"
 let mapleader=" "
 
-"  è¡Œå·è®¾ç½®"
+"  ĞĞºÅÉèÖÃ"
 set rnu
 set nu
-"è®¾ç½®é«˜äº®"
+"ÉèÖÃ¸ßÁÁ"
 set hlsearch
-" è‡ªåŠ¨å®šä½åˆ°è¾“å…¥ä¸­çš„å­—ç¬¦ä¸²ï¼Œä¸éœ€è¦å›è½¦æœç´¢
+" ×Ô¶¯¶¨Î»µ½ÊäÈëÖĞµÄ×Ö·û´®£¬²»ĞèÒª»Ø³µËÑË÷
 set incsearch
-"å–æ¶ˆæœç´¢åçš„é«˜äº®"
+"È¡ÏûËÑË÷ºóµÄ¸ßÁÁ"
 nnoremap <ESC> :nohlsearch<CR>
 set ignorecase smartcase
 
-"  ä¸Šä¸‹ç§»åŠ¨ä¸”ä¿æŒå±…ä¸­"
+"  ÉÏÏÂÒÆ¶¯ÇÒ±£³Ö¾ÓÖĞ"
 nnoremap j jzz
 nnoremap k kzz
-"  å¿«é€Ÿè·³è½¬ "
+"  ¿ìËÙÌø×ª "
 vnoremap J 3j
 vnoremap K 3k
 vnoremap j jzz
@@ -32,27 +32,27 @@ vnoremap k kzz
 nnoremap G Gzz
 nmap J 3j
 nmap K 3k
-"  è¡Œé¦–å’Œè¡Œå°¾ è¦å¼„æˆé€’å½’çš„,ä¸ç„¶å‘½ä»¤ç»„åˆçš„æ—¶å€™ä¸èƒ½è°ƒç”¨ æ¯”å¦‚dL dH vL vH vJ vK"
+"  ĞĞÊ×ºÍĞĞÎ² ÒªÅª³Éµİ¹éµÄ,²»È»ÃüÁî×éºÏµÄÊ±ºò²»ÄÜµ÷ÓÃ ±ÈÈçdL dH vL vH vJ vK"
 nnoremap L $
 noremap H ^
 vnoremap L $
 vnoremap H ^
 map L $
 map H ^
-"  å–æ¶ˆCtrl+r redoæŒ‰é”®"
-"  è¿™é‡Œå¤§æ¦‚æ˜¯å§C-ré»˜è®¤çš„redoå–æ¶ˆ,ç„¶åC-rçš„æ„ä¹‰è¿˜åœ¨,åªæ˜¯æŒ‰C-ræ²¡ç”¨è€Œå·².æ‰€ä»¥ä¸‹é¢çš„ U å°±å¯ä»¥æ˜ å°„è¿‡å»
-unmap <C-r> " æˆ‘è§‰å¾—ä¹Ÿç­‰äºmap <C-r> <Nop>"
+"  È¡ÏûCtrl+r redo°´¼ü"
+"  ÕâÀï´ó¸ÅÊÇ°ÉC-rÄ¬ÈÏµÄredoÈ¡Ïû,È»ºóC-rµÄÒâÒå»¹ÔÚ,Ö»ÊÇ°´C-rÃ»ÓÃ¶øÒÑ.ËùÒÔÏÂÃæµÄ U ¾Í¿ÉÒÔÓ³Éä¹ıÈ¥
+unmap <C-r> " ÎÒ¾õµÃÒ²µÈÓÚmap <C-r> <Nop>"
 "  redo"
-"  è¿™é‡Œæ¢mapä¸è¡Œ å› ä¸ºnnormapä¸ä¼šåšè¿›ä¸€æ­¥çš„æ˜ å°„ ä¸ä¼šå†å¯¹C-råšè¿›ä¸€æ­¥æ‰«æ,ä¸€èˆ¬ç”¨äºé‡å®šä¹‰ä¸€ä¸ªå‘½ä»¤"
+"  ÕâÀï»»map²»ĞĞ ÒòÎªnnormap²»»á×ö½øÒ»²½µÄÓ³Éä ²»»áÔÙ¶ÔC-r×ö½øÒ»²½É¨Ãè,Ò»°ãÓÃÓÚÖØ¶¨ÒåÒ»¸öÃüÁî"
 nnoremap U <C-r>
-"  æŸ¥æ‰¾"
+"  ²éÕÒ"
 " nnoremap <C-f> /
 
 set visualbell
 set noerrorbells
 " If true, creation of global mark will trigger creation of IDE's bookmark and vice versa."
 set ideamarks
-" é¢„ç•™50è¡Œ scroll offset"
+" Ô¤Áô50ĞĞ scroll offset"
 " set scrolloff=10
 
 
@@ -71,7 +71,7 @@ inoremap <C-S-l> <Esc>:action EditorCompleteStatement<CR>i
 
 " jump to next error
 noremap <leader>j <ESC>:action GotoNextError<CR>
-" jump to previous errorï¼Œå°±è¿‘åŸåˆ™
+" jump to previous error£¬¾Í½üÔ­Ôò
 noremap <leader>k <ESC>:action GotoPreviousError<CR>
 
 
@@ -79,11 +79,11 @@ nnoremap <leader>p <C-A-Left>
 nnoremap <leader>n <C-A-Right>
 
 
-" æ‰“å¼€ç½‘é¡µ
+" ´ò¿ªÍøÒ³
 " nnoremap <leader>w :action WebOpenInAction<CR>
 
 
-"è§£å†³IDEAç³»ç»Ÿå‰ªè´´æ¿ä¸èƒ½ç”¨çš„é—®é¢˜"
+"½â¾öIDEAÏµÍ³¼ôÌù°å²»ÄÜÓÃµÄÎÊÌâ"
 set clipboard+=unnamed
 
 
@@ -111,7 +111,7 @@ set multiple-cursors
 
 vmap S <Plug>VSurround
 
-" é‡æ„"
+" ÖØ¹¹"
 nnoremap R :action RenameElement<CR>
 nnoremap <C-S-v> <C-v>
 nnoremap <C-v> p

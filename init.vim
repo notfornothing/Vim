@@ -1,21 +1,18 @@
 " Create By JackSparrow"
 " get good ,get vim"
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+if exists("g:neovide")
+    let g:neovide_refresh_rate=165
+    let g:neovide_transparency=1
+    let g:neovide_profiler = v:false
+endif
 
-
-let g:python3_host_prog = 'C:\Python38\python.exe'
-let g:python_host_prog  = 'C:\Python27\python.exe'
-
-set mouse=a
+let g:python3_host_prog = 'C:\Install\Python310\python.exe'
+let g:python_host_prog  = 'C:\Install\Python27\python.exe'
 
 """"""""""""""""""""""""""""""" vim-plug 插件的配置文件"""""""""""""""""""""""
 call plug#begin('~/AppData/Local/nvim/plugged')
-
 " markdown img paste
 " Plug 'ferrine/md-img-paste.vim'
-"
-" 多光标模式
-Plug 'terryma/vim-multiple-cursors'
 "
 " 切换中文英文，貌似没用
 Plug 'lilydjwg/fcitx.vim'
@@ -49,7 +46,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " airline 下边状态栏，上边状态栏需要设置一下 =1 的命令
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline'
 
 " airline_theme 状态栏颜色我用
@@ -58,7 +55,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " 文件快速搜索
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 " 高亮复制显示
 Plug 'machakann/vim-highlightedyank'
@@ -76,10 +72,10 @@ Plug 'https://github.com/hotoo/pangu.vim.git'
 Plug 'https://github.com/tommcdo/vim-exchange.git'
 
 " 快速跳转
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 " 当前字母高亮
-" Plug 'https://github.com/itchyny/vim-cursorword.git'
+Plug 'https://github.com/itchyny/vim-cursorword.git'
 
 
 " If you don't have nodejs and yarn
@@ -109,8 +105,8 @@ Plug 'mbbill/undotree'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""vim-plug 结束""""""""""""""""""""""""""""""""""""""""
 
-
 " nvimQT_Shift_Insert
+inoremap <silent>  <C-V>  <C-R>+
 inoremap <silent>  <S-Insert>  <C-R>+
 nnoremap <silent>  <S-Insert>  i<C-R>+<Esc>
 cnoremap <silent>  <S-Insert>  <C-R>*
@@ -158,8 +154,8 @@ nnoremap U <C-r>
 " set scrolloff=10
 
 " 左右标签栏
-nnoremap  <leader>l :bn!<CR>
-nnoremap  <leader>h :bp!<CR>
+nnoremap <silent> <leader>l :bn!<CR>
+nnoremap <silent>  <leader>h :bp!<CR>
 
 
 " 上下移动且保持居中"
@@ -208,10 +204,6 @@ inoremap <C-f> <ESC>/
 nnoremap <C-Up> ddkP
 nnoremap <C-Down> ddp
 
-" 块选择和粘贴
-" 未实现
-nnoremap <C-S-v> <C-v>
-nnoremap <C-v> p
 
 " gi 居中
 nnoremap gi gi<ESC>zza
@@ -234,25 +226,12 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Window operation
-" （关于窗口操作）
-" nnoremap <Leader>ww <C-w>w
-" nnoremap <Leader>wc <C-W>c
-" nnoremap <Leader>wo :only<Cr>
-" nnoremap <Leader>wj <C-W>j
-" nnoremap <Leader>wk <C-W>k
-" nnoremap <Leader>wh <C-W>h
-" nnoremap <Leader>wl <C-W>l
-" nnoremap <Leader>ws <C-W>s
-" nnoremap <Leader>w- <C-W>s
-" nnoremap <Leader>wv <C-W>v
-" nnoremap <Leader>w\| <C-W>v
-
-
+nnoremap <F3> <C-W>o
 
 " 主题 dracula
 colorscheme dracula
-" 字体
 
+" 字体
 set nobackup
 set noswapfile
 set clipboard=unnamed
@@ -261,7 +240,31 @@ set ts=4
 set expandtab
 set autoindent
 
+" 关闭 visual bell
+set visualbell t_vb=
+" 关闭 beep
+au GuiEnter * set t_vb=
 
+" 保存
+nmap <Leader>s :w<CR>
+" 保存
+" 保存并且退出标签栏
+nnoremap <S-z>Z :w!<CR>:bd!<CR>
+
+" like Windows
+nnoremap <C-c> yy
+inoremap <C-c> <Esc>yy
+
+" 块选择和粘贴
+" 未实现
+nnoremap <C-S-v> p
+
+nnoremap <C-z> u
+inoremap <C-z> <Esc>u
+
+nnoremap <C-S-z> <C-r>
+inoremap <C-S-z> <Esc><C-r>
+ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 隐藏 GVIM 菜单及设置
 " source $VIMRUNTIME/delmenu.vim
@@ -281,44 +284,6 @@ set autoindent
 " set nolist
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" gvim
-"" gvim 如何设置每次启动编辑器时自动载入上次关闭时打开的文件？
-"autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-"    \ call mkdir($HOME . "/.vim") |
-"    \ endif |
-"    \ execute "mksession! " . $HOME . "/.vim/Session.vim"
-"
-"autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
-"    \ execute "source " . $HOME . "/.vim/Session.vim"
-
-" 关闭 visual bell
-set visualbell t_vb=
-" 关闭 beep
-au GuiEnter * set t_vb=
-
-" 保存
-nmap <Leader>s :w<CR>
-" 保存
-" nmap <C-s> :w!<CR>
-" 保存并且退出标签栏
-nnoremap <S-z>Z :w!<CR>:bd!<CR>
-" 保存并且退出窗口
-
-nnoremap <C-c> yy
-nnoremap <C-v> p
-
-
-" like Windows
-nnoremap <C-c> yy
-nnoremap <C-v> p
-inoremap <C-c> <Esc>yy
-inoremap <C-v> <Esc>p
-
-nnoremap <C-z> u
-inoremap <C-z> <Esc>u
-
-nnoremap <C-S-z> <C-r>
-inoremap <C-S-z> <Esc><C-r>
 
 " airline
 let g:airline_theme='deus'
@@ -329,13 +294,6 @@ autocmd BufWritePre *.vimrc,*.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGu
 
 "highlightedyank
 let g:highlightedyank_highlight_duration = 400
-
-
-" 解决 Vim/Gvim 插入模式下 backspace 按键无法删除字符的问题
-" 去掉有关 Vi 的一致性模式，避免之前版本的 Bug，在命令模式下：
-set nocompatible
-" 设置 backspace 的工作方式：
-set backspace=indent,eol,start
 
 " <leader>rc 加载 vimrc
 nnoremap <leader>rc :e $HOME\AppData\Local\nvim\init.vim<CR>
@@ -359,8 +317,6 @@ let g:mkdp_auto_start = 0
 
 nnoremap <leader>m :MarkdownPreview<CR>
 
-
-
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 " default: 1
@@ -368,21 +324,6 @@ let g:mkdp_auto_close = 0
 
 
 " coc setting
-" 用 TAB 选择第一个候选预览，默认情况是不选的
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" 在有提示的时候按回车就是回车，而不是补全
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=1
@@ -400,39 +341,29 @@ function! s:show_documentation()
 endfunction
 
 
-" " coc_snippet====================================================
-" " Use <C-l> for trigger snippet expand.
-" imap <C-l> <Plug>(coc-snippets-expand)
-"
-" " Use <C-j> for select text for visual placeholder of snippet.
-" vmap <C-j> <Plug>(coc-snippets-select)
-"
-" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" let g:coc_snippet_next = '<c-j>'
-"
-" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-" let g:coc_snippet_prev = '<c-k>'
-"
-" " Use <C-j> for both expand and jump (make expand higher priority.)
-" imap <C-j> <Plug>(coc-snippets-expand-jump)
-"
-" " Use <leader>x for convert visual selected code to snippet
-" xmap <leader>x  <Plug>(coc-convert-snippet)
+"" " coc_snippet====================================================
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <Down>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><Up> coc#pum#visible() ? coc#pum#prev(1) : "\<BS>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " " coc_snippet====================================================
 
+" Use K to show documentation in preview window.
+nnoremap <silent> <Leader>p :call show_documentation()<CR>
 
 " coc-explorer
 nnoremap <A-1> :CocCommand explorer<CR>
@@ -443,50 +374,8 @@ nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
 
 
-" inoremap ,, <ESC>/<++><CR>:nohlsearch<CR>zzc4l
-" nnoremap ,, /<++><CR>:nohlsearch<CR>zzc4l
-
-
-" inoremap ,/ <ESC>Go<ESC>o" ===<CR>" ===<CR>" ===<CR><++><ESC>kklzza<Space>
-" nnoremap ,/ Go<ESC>o" ===<CR>" ===<CR>" ===<CR><++><ESC>kklzza<Space>
-" inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
-" inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
-" inoremap <buffer> ,n ---<Enter><Enter>
-" inoremap <buffer> ,b **** <++><Esc>F*hi
-" inoremap <buffer> ,s ~~~~ <++><Esc>F~hi
-" inoremap <buffer> ,i ** <++><Esc>F*i
-" inoremap <buffer> ,d `` <++><Esc>F`i
-" inoremap <buffer> ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
-" inoremap <buffer> ,m - [ ]
-" inoremap <buffer> ,p ![](<++>) <++><Esc>F[a
-" inoremap <buffer> ,a [](<++>) <++><Esc>F[a
-" inoremap <buffer> ,1 #<Space><Enter><++><Esc>kA
-" inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
-" inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
-" inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
-" inoremap <buffer> ,l --------<Enter>
-"
-" nnoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
-" nnoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
-" nnoremap <buffer> ,n ---<Enter><Enter>
-" nnoremap <buffer> ,b **** <++><Esc>F*hi
-" nnoremap <buffer> ,s ~~~~ <++><Esc>F~hi
-" nnoremap <buffer> ,i ** <++><Esc>F*i
-" nnoremap <buffer> ,d `` <++><Esc>F`i
-" nnoremap <buffer> ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
-" nnoremap <buffer> ,m - [ ]
-" nnoremap <buffer> ,p ![](<++>) <++><Esc>F[a
-" nnoremap <buffer> ,a [](<++>) <++><Esc>F[a
-" nnoremap <buffer> ,1 #<Space><Enter><++><Esc>kA
-" nnoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
-" nnoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
-" nnoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
-" nnoremap <buffer> ,l --------<Enter>
-
-
 " coc_extends
-let g:coc_global_extensions =['coc-json','coc-translator','coc-snippets','coc-explorer','coc-java']
-
+let g:coc_global_extensions =['coc-json','coc-translator','coc-snippets','coc-explorer','coc-java','coc-fzf-preview']
 
 
 map f <Plug>Sneak_f
@@ -499,38 +388,14 @@ map , <Plug>Sneak_,zz
 "
 let g:sneak#use_ic_scs = 1
 
-" Use K to show documentation in preview window.
-nnoremap <silent> <Leader>p :call <SID>show_documentation()<CR>
-
 
 " fzf
-nnoremap <C-e> :FZF<CR>
-nnoremap <C-S-e> :FZF ~<CR>
-
+nnoremap <C-e> :FZF C:/<CR>
+nnoremap <C-S-E> :FZF ~<CR>
 
 " undoTree
 nnoremap <A-2> :UndotreeToggle<CR>
 
-" 备份？
-if has("persistent_undo")
-   let target_path = expand('~/.undodir')
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
-
-    let &undodir=target_path
-    set undofile
-endif
-
-
-" gvim
-"" gvim 如何设置每次启动编辑器时自动载入上次关闭时打开的文件？
-autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-    \ call mkdir($HOME . "/.vim") |
-    \ endif |
-    \ execute "mksession! " . $HOME . "/.vim/Session.vim"
 
 " vim-markdown-toc 
 " 默认 * 号 变成 - + 号 源码可读性提高,markdown样式是不会变的
@@ -543,19 +408,3 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 
 
 nnoremap Q :q!<CR>
-
-
-" If set to 0, insert mappings won't be supported in Insert mode anymore.
-let g:multi_cursor_support_imap=0
-
-
-let g:multi_cursor_use_default_mapping=0
-
-" Default mapping
-let g:multi_cursor_start_word_key      = '<A-n>'
-let g:multi_cursor_select_all_word_key = 'R'
-let g:multi_cursor_next_key            = '<A-n>'
-let g:multi_cursor_prev_key            = '<A-p>'
-let g:multi_cursor_skip_key            = '<A-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
