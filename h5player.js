@@ -50,8 +50,8 @@
 
 /* 当前用到的快捷键 */
 const hasUseKey = {
-  keyCodeList: [13, 16, 17, 18, 27, 32, 37, 38, 39, 40, 49, 50, 51, 52, 67, 68, 69, 70, 73, 74, 75, 77, 78, 79, 80, 81, 82, 83, 84, 85, 87, 88, 89, 90, 97, 98, 99, 100, 220],
-  keyList: ['enter', 'shift', 'control', 'alt', 'escape', ' ', 'arrowleft', 'arrowright', 'arrowup', 'arrowdown', '1', '2', '3', '4', 'c', 'd', 'e', 'f', 'i', 'j', 'k', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z', '\\', '|'],
+  keyCodeList: [13, 16, 17, 18, 27, 32, 37, 38, 39, 40, 49, 50, 51, 52, 67, 68, 69, 70, 72, 73, 74, 75,76, 78, 79, 80, 81, 82, 83, 84, 85, 87, 88, 89, 90, 97, 98, 99, 100, 220],
+  keyList: ['enter', 'shift', 'control', 'alt', 'escape', ' ', 'arrowleft', 'arrowright', 'arrowup', 'arrowdown', '1', '2', '3', '4', 'c', 'd', 'e', 'f', 'i', 'h', 'l', 'j', 'k', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z', '\\', '|'],
   keyMap: {
     enter: 13,
     shift: 16,
@@ -71,6 +71,8 @@ const hasUseKey = {
     d: 68,
     e: 69,
     f: 70,
+    h: 72,
+    l: 76,
     i: 73,
     j: 74,
     k: 75,
@@ -4495,6 +4497,7 @@ const h5Player = {
     const keyCode = event.keyCode;
     const key = event.key.toLowerCase();
 
+    // 按下shift
     if (event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
       // 网页全屏
       if (key === 'enter') {
@@ -4572,12 +4575,43 @@ const h5Player = {
       t.setCurrentTime(-t.skipStep * 6);
     }
 
+    if (event.ctrlKey && keyCode === 76) {
+      t.setCurrentTime(t.skipStep * 6);
+    }
+    // ctrl+方向键左←：后退30秒
+    if (event.ctrlKey && keyCode === 72) {
+      t.setCurrentTime(-t.skipStep * 6);
+    }
+    
+    if (event.shiftKey && keyCode === 76) {
+      t.setCurrentTime(t.skipStep * 6);
+    }
+    // ctrl+方向键左←：后退30秒
+    if (event.shiftKey && keyCode === 72) {
+      t.setCurrentTime(-t.skipStep * 6);
+    }
+
     // ctrl+方向键上↑：音量升高 20%
     if (event.ctrlKey && keyCode === 38) {
       t.setVolumeUp(0.2);
     }
     // 方向键下↓：音量降低 20%
     if (event.ctrlKey && keyCode === 40) {
+      t.setVolumeDown(-0.2);
+    }
+
+    if (event.ctrlKey && keyCode === 75) {
+      t.setVolumeUp(0.2);
+    }
+    // 按键J：模糊减少 1 px
+    if (event.ctrlKey && keyCode === 74) {
+      t.setVolumeDown(-0.2);
+    }
+    if (event.shiftKey && keyCode === 75) {
+      t.setVolumeUp(0.2);
+    }
+    // 按键J：模糊减少 1 px
+    if (event.shiftKey && keyCode === 74) {
       t.setVolumeDown(-0.2);
     }
 
@@ -4593,6 +4627,15 @@ const h5Player = {
       t.setCurrentTime(-t.skipStep);
     }
 
+    // 方向键右→：快进5秒
+    if (keyCode === 76) {
+      t.setCurrentTime(t.skipStep);
+    }
+    // 方向键左←：后退5秒
+    if (keyCode === 72) {
+      t.setCurrentTime(-t.skipStep);
+    }
+
     // 方向键上↑：音量升高 10%
     if (keyCode === 38) {
       t.setVolumeUp(0.1);
@@ -4600,6 +4643,13 @@ const h5Player = {
     // 方向键下↓：音量降低 10%
     if (keyCode === 40) {
       t.setVolumeDown(-0.1);
+    }
+    
+    if (keyCode === 75) {
+      t.setVolumeUp(0.01);
+    }
+    if (keyCode === 74) {
+      t.setVolumeDown(-0.01);
     }
 
     // 空格键：暂停/播放
@@ -4670,14 +4720,14 @@ const h5Player = {
       t.setHueDown();
     }
 
-    // 按键K：模糊增加 1 px
-    if (keyCode === 75) {
-      t.setBlurUp();
-    }
-    // 按键J：模糊减少 1 px
-    if (keyCode === 74) {
-      t.setBlurDown();
-    }
+    // // 按键K：模糊增加 1 px
+    // if (keyCode === 75) {
+    //   t.setBlurUp();
+    // }
+    // // 按键J：模糊减少 1 px
+    // if (keyCode === 74) {
+    //   t.setBlurDown();
+    // }
 
     // 按键Q：图像复位
     if (keyCode === 81) {
@@ -4842,6 +4892,7 @@ const h5Player = {
     /* 判断是否执行了自定义快捷键操作，如果是则不再响应后面默认定义操作 */
     if (t.runCustomShortcuts(player, event) === true) return
 
+    debug.log('相应----------------');
     /* 响应播放器相关操作 */
     t.palyerTrigger(player, event);
   },
