@@ -1,12 +1,12 @@
-map("J", "d");
-map("K", "u");
-map("<Space>l", "R");
-map("<Space>h", "E");
+api.map("J", "d");
+api.map("K", "u");
+api.map("<Space>l", "R");
+api.map("<Space>h", "E");
 
-vmap("H","0");
-vmap("L","$");
-vmap("J","3j");
-vmap("K","3k");
-map('H', 'S');
-map('L', 'D');
-map('F', 'gf');
+api.vmap("H","0");
+api.vmap("L","$");
+api.vmap("J","3j");
+api.vmap("K","3k");
+api.map('H', 'S');
+api.map('L', 'D');
+api.map('F', 'gf');
